@@ -46,34 +46,34 @@ useEffect (() => {
 }
 }, [countries])
 
-
   return (
     <>
       <form className='search'>
         find countries: <input value = {value} onChange={getCountry}></input>
       </form>
-      { (countries.length >= 10) ? 
-        <p>Too many matches, specify another filter </p>
-      : (countries.length === 1  && weather['main']) ? 
-      
-        <Country 
-          name = {countries[0]['name']['common']} 
-          capital = {countries[0]['capital']} 
-          area = {countries[0]['area']}
-          languages = {countries[0]['languages']}
-          flag = {countries[0]['flags']['png']}
-          temperature = {weather['main']['temp']}
-          wind = {weather['wind']['speed'] }
-          iconURL = {`https://openweathermap.org/img/wn/${weather['weather'][0]['icon']}@2x.png`}          
+      <section className='content-container'>
+        { (countries.length >= 10) ? 
+          <p>Too many matches, specify another filter </p>
+        : (countries.length === 1  && weather['main']) ? 
+        
+          <Country 
+            name = {countries[0]['name']['common']} 
+            capital = {countries[0]['capital']} 
+            area = {countries[0]['area']}
+            languages = {countries[0]['languages']}
+            flag = {countries[0]['flags']['png']}
+            temperature = {weather['main']['temp']}
+            wind = {weather['wind']['speed'] }
+            iconURL = {`https://openweathermap.org/img/wn/${weather['weather'][0]['icon']}@2x.png`}          
+          />
+        : countries.map( country => 
+        <CountryList 
+          key= {country['name']['common']} 
+          name = {country['name']['common']}
+          showInfo={ () => showInfo(country)}
         />
-      : countries.map( country => 
-      <CountryList 
-        key= {country['name']['common']} 
-        name = {country['name']['common']}
-        showInfo={ () => showInfo(country)}
-      />
-      
-      )}
+        )}
+      </section>
     </>
   )
 }
