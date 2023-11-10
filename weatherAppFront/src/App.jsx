@@ -22,27 +22,29 @@ function App() {
      axios.get(`https://studies.cs.helsinki.fi/restcountries/api/all`)
          .then( response => {
            console.log(response.data)
-           const valueString = value.toString().toLowerCase()
            const filterObj = response.data.filter( e => e['name']['common'].toLowerCase().startsWith(value.toLowerCase()) )
            setCountries(filterObj)
          })
          .catch(err => {
           console.log(err);
          })
-    }
-    if (countries.length === 1 ) {
-      const [lat, lng] = countries[0]['latlng']
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${import.meta.env.VITE_SOME_KEY}`)
-        
-         .then(response => {
-           console.log('response',response.data);
-           setWeather(response.data);
-         })
-         .catch(err => {
-          console.log(err);
-         })
    }
   }, [value])
+
+useEffect (() => {
+  if (countries.length === 1 ) {
+    const [lat, lng] = countries[0]['latlng']
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=${import.meta.env.VITE_SOME_KEY}`)
+      
+       .then(response => {
+         console.log('response',response.data);
+         setWeather(response.data);
+       })
+       .catch(err => {
+        console.log(err);
+       })
+}
+}, [countries])
 
 
   return (
@@ -69,7 +71,9 @@ function App() {
         key= {country['name']['common']} 
         name = {country['name']['common']}
         showInfo={ () => showInfo(country)}
-      />)}
+      />
+      
+      )}
     </>
   )
 }
