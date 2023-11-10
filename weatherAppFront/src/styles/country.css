@@ -5,9 +5,14 @@ img {
   
   .grid-flow {
     display: grid;
-    gap:1rem;
+    gap: 1rem;
     align-content: start;
   }
+
+  .grid-flow[data-spacing = "large"] {
+    gap:2rem;
+  }
+
   .result-summary  {
     --padding: 2.5rem;
     --border-radius:2rem;
@@ -16,6 +21,26 @@ img {
     display: grid;
   }
   
+
+  .info {
+    padding: var(--padding);
+    background: var(--gradient-primary);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+  }
+  .weather {
+    padding: var(--padding);
+    text-align: center;
+  }
+
+  .circle {
+    margin: 0 auto;
+  }
+
+  @media (min-width: 600px ) {
+    .info {
+      border-radius: var(--border-radius);
+    }
+  }
   @media (min-width: 600px ) {
     .result-summary {
       grid-template-columns: 1fr 1fr;
@@ -24,13 +49,4 @@ img {
       box-shadow: 0.5rem 1rem 3rem 
         hsl(var(--clr-neutral-hsl-700), 0.4);
     }
-  }
-
-  .weather {
-    text-align: center;
-    background: var(--gradient-primary);
-  }
-
-  .circle {
-    margin: 0 auto;
   }
