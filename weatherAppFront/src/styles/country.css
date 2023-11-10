@@ -21,19 +21,25 @@ img {
     display: grid;
   }
   
-
   .info {
     padding: var(--padding);
     background: var(--gradient-primary);
     border-radius: 0 0 var(--border-radius) var(--border-radius);
   }
+
   .weather {
     padding: var(--padding);
     text-align: center;
   }
 
   .circle {
-    margin: 0 auto;
+    margin-inline: auto;
+    display: grid;
+    place-content:center ;
+    width: 12rem;
+    background: var(--gradient-to-transparent);
+    aspect-ratio: 1/1;
+    border-radius: 50%;
   }
 
   @media (min-width: 600px ) {
