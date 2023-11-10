@@ -3,9 +3,9 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  color-scheme: light;
+  /* color: rgba(255, 255, 255, 0.87); */
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,9 +24,10 @@
   --clr-neutral-700: hsl(var(--clr-neutral-hsl-700));
 
   --clr-primary-hsl-400: 252, 100%, 67%;
-  --clr-primary-hsl-500: 213, 61%, 42%;
+  /* --clr-primary-hsl-500: 213, 61%, 42%; */
+  --clr-primary-hsl-500: 194, 19%,  53%;
   --clr-secondary-hsl-400: 241, 81%, 54%;
-  --clr-secondary-hsl-500: 213, 47%, 60%;
+  --clr-secondary-hsl-500: 204, 100%, 11%;
 
   --clr-primary-400: hsl(var(--clr-primary-hsl-400));
   --clr-primary-500: hsl(var(--clr-primary-hsl-500));
@@ -35,7 +36,7 @@
   
   --gradient-primary: linear-gradient(
     var(--clr-primary-500),
-    var(--clr-secondary-500)
+    hsl(var(--clr-secondary-hsl-500), 0.9)
   );
 
   --gradient-to-transparent: linear-gradient(
@@ -89,7 +90,7 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: #fffffff9;
   }
   a:hover {
     color: #747bff;

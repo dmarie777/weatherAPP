@@ -18,9 +18,11 @@ const Country = ({name, capital, area, languages, flag, temperature, wind, iconU
                     <p>area: {area}</p>
                 </div>
                 <h2>Languages</h2>
-                { 
-                loopObj().map(e => <li key = {e}>{e}</li>) 
-                }
+                <div>
+                    { 
+                    loopObj().map(e => <li className="grid-flow" key = {e}>{e}</li>) 
+                    }
+                </div>
                 <img src={flag} alt="flag" />
             </div>
             <div className="weather grid-flow "data-spacing="large">
