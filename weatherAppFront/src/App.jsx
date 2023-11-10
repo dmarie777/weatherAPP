@@ -4,6 +4,7 @@ import Country from './components/Country'
 import CountryList from './components/CountryList'
 import './App.css'
 
+
 function App() {
   const [value, setValue] = useState('')
   const [countries, setCountries] = useState([])
@@ -46,12 +47,13 @@ function App() {
 
   return (
     <>
-      <form >
+      <form className='search'>
         find countries: <input value = {value} onChange={getCountry}></input>
       </form>
       { (countries.length >= 10) ? 
         <p>Too many matches, specify another filter </p>
       : (countries.length === 1  && weather['main']) ? 
+      
         <Country 
           name = {countries[0]['name']['common']} 
           capital = {countries[0]['capital']} 

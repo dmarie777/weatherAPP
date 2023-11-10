@@ -1,0 +1,27 @@
+img {
+    display: block;
+    max-width: 100%;
+  }
+  
+  .grid-flow {
+    display: grid;
+    gap:1rem;
+    align-content: start;
+  }
+  .result-summary  {
+    --padding: 2.5rem;
+    --border-radius:2rem;
+    
+    max-width: 46rem;
+    display: grid;
+  }
+  
+  @media (min-width: 600px ) {
+    .result-summary {
+      grid-template-columns: 1fr 1fr;
+      border-radius: 2rem;
+      border-color: rgb(183, 0, 255);
+      box-shadow: 0.5rem 1rem 3rem 
+        hsl(var(--clr-neutral-hsl-700), 0.4);
+    }
+  }
