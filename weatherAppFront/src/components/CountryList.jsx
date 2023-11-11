@@ -1,7 +1,12 @@
+import '../styles/countryList.css'
+
 const CountryList = ( {name , showInfo} ) => {
     return (
         <>
-        <p >{name}<button onClick={showInfo}>show</button></p>
+        <div className="list">
+            <p >{name}</p>
+            <button onClick={showInfo}>show</button>
+        </div>
         </>
     )
 }
